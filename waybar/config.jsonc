@@ -14,7 +14,7 @@
       }
     },
     "clock": {
-      "format": "<span color='#b4befe'> </span>{:%H:%M}",
+      "format": "<span color='#b4befe'> </span>{:%H:%M}"
     },
     "backlight": {
       "device": "intel_backlight",
@@ -29,7 +29,7 @@
         "headphone": "",
         "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
-      "scroll-step": 1,
+      "scroll-step": 1
     },
     "bluetooth": {
       "format": "<span color='#b4befe'></span> {status}",
@@ -44,12 +44,12 @@
       "format-wifi": "<span color='#b4befe'> </span>{essid}",
       "format-ethernet": "{ipaddr}/{cidr} ",
       "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-      "tooltip": false,
+      "tooltip": false
     },
     "battery": {
       "format": "<span color='#b4befe'>{icon}</span> {capacity}%",
       "format-icons": ["", "", "", "", "", "", "", "", "", ""],
       "format-charging": "<span color='#b4befe'></span> {capacity}%",
-      "tooltip": false,
-    },
+      "tooltip": false
+    }
 }
