@@ -1,0 +1,49 @@
+[general]
+import = ["~/.config/alacritty/themes/tokyo-night.toml"]
+
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[window]
+padding.x = 0
+padding.y = 0
+opacity = 0.8
+decorations = "None"
+startup_mode = "Maximized"
+title = "Терминал"
+dynamic_padding = true
+
+[font]
+size = 16
+
+normal.family = "JetBrainsMono Nerd Font"
+# normal.family = "GeistMono Nerd Font"
+# normal.family = "MonaSpiceKr Nerd Font" # Ne, Kr, Rn
+normal.style = "Regular"
+
+bold.family = "JetBrainsMono Nerd Font"
+# bold.family = "GeistMono Nerd Font"
+# bold.family = "MonaSpiceKr Nerd Font"
+bold.style = "Bold"
+
+italic.family = "JetBrainsMono Nerd Font"
+# italic.family = "GeistMono Nerd Font"
+# italic.family = "MonaSpiceKr Nerd Font"
+italic.style = "Italic"
+
+bold_italic.family = "JetBrainsMono Nerd Font"
+# bold_italic.family = "GeistMono Nerd Font"
+# bold_italic.family = "MonaSpiceKr Nerd Font"
+bold_italic.style = "Bold Italic"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
