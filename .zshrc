@@ -1,5 +1,6 @@
 export JAVA_HOME="$HOME/jdk-23.0.1"
 
+ANTIGEN_PATH="$HOME/antigen/antigen.zsh"
 NODE_PATH="$HOME/node/bin"
 GRADLE_PATH="$HOME/gradle/bin"
 GOLANG_PATH="$HOME/golang/bin"
@@ -37,4 +38,12 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
 PROMPT=' %F{blue}%1~%f %F{red}${vcs_info_msg_0_}%f%# '
+
+source $ANTIGEN_PATH
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen apply
+
 
