@@ -17,10 +17,14 @@ local options = {
 	ignorecase = true, -- Делает поиск без учета регистра
 	smartcase = true, -- Если в поиске есть хотя бы одна заглавная буква, то поиск будет учитывать регистр
 	swapfile = false, -- Отключает создание swap-файлов
+	cmdheight = 1,
 }
 
 if vim.g.neovide == true then
-	vim.opt.guifont = "MonaSpiceRn Nerd Font:h16"
+	-- vim.opt.guifont = "Source Code Pro:h15"
+	-- vim.opt.guifont = "JetBrainsMono Nerd Font:h16"
+	-- vim.opt.guifont = "SF Mono:h16"
+	vim.opt.guifont = "MonoLisa Trial:h15"
 	vim.g.neovide_fullscreen = true
 end
 

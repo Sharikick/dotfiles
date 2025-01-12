@@ -15,7 +15,11 @@ return {
 				formatting.goimports,
 				formatting.phpcsfixer,
 				formatting.xmllint,
+				formatting.black,
+				formatting.clang_format,
 
+				diagnostics.cpplint,
+				diagnostics.ruff,
 				diagnostics.golangci_lint,
 			},
 		})

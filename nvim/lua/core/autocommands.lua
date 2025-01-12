@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "java",
+	pattern = "java,cpp",
 	callback = function()
 		vim.opt_local.tabstop = 2
 		vim.opt_local.shiftwidth = 2

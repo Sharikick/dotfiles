@@ -30,6 +30,8 @@ return {
 				"xml",
 				"c_sharp",
 				"php",
+				"html",
+				"css",
 			},
 
 			sync_install = true,

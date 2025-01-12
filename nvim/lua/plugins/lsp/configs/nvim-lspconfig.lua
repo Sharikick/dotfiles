@@ -4,6 +4,14 @@ return {
 		local lspconfig = require("lspconfig")
 		local lsp_config = require("plugins.lsp.opts")
 
+		lspconfig.html.setup({
+			capabilities = lsp_config.capabilities,
+		})
+
+		lspconfig.cssls.setup({
+			capabilities = lsp_config.capabilities,
+		})
+
 		lspconfig.pyright.setup({
 			capabilities = lsp_config.capabilities,
 			on_attach = lsp_config.on_attach,
@@ -21,6 +29,12 @@ return {
 			end,
 		})
 
+		lspconfig.clangd.setup({
+			capabilities = lsp_config.capabilities,
+			on_attach = lsp_config.on_attach,
+			settings = {},
+		})
+
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
@@ -29,6 +43,11 @@ return {
 					},
 				},
 			},
+		})
+
+		lspconfig.dockerls.setup({})
+		lspconfig.docker_compose_language_service.setup({
+			filetypes = { "yaml" },
 		})
 
 		lspconfig.intelephense.setup({
