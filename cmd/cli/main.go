@@ -31,6 +31,7 @@ func main() {
 
 	configs := map[string]string{
 		"nvim": filepath.Join(repoPath, "resources", "nvim"),
+		"alacritty": filepath.Join(repoPath, "resources", "alacritty"),
 	}
 
 	homeDir, err := os.UserHomeDir()
