@@ -1,37 +1,39 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 )
 
-func linkConfig(src, configDir string) error {
-	_ = os.Remove(configDir)
+func createSymlink(target, link string) error {
+	_ = os.Remove(link)
 
-	if err := os.Symlink(src, configDir); err != nil {
-		return fmt.Errorf("ошибка при создании symlink: %s, err: %s", src, err.Error())
+	if err := os.Symlink(target, link); err != nil {
+		return fmt.Errorf("ошибка при создании symlink: %w", err)
 	}
 
-	slog.Info("Symlink создан", slog.String("from", src), slog.String("to", configDir))
+	slog.Info("symlink создан", slog.String("link", link))
 	return nil
+}
+
+func getExecutableDir() (string, error) {
+	exec, err := os.Executable()
+	if err != nil {
+		return "", errors.New("не удалось определить путь к исполняемому файлу")
+	}
+
+	return filepath.Dir(exec), nil
 }
 
 func main() {
 	slog.Info("Идет установка конфигов")
 
-	execPath, err := os.Executable()
+	repositoryDir, err := getExecutableDir()
 	if err != nil {
-		slog.Error("Не найден исполняемый файл")
-		return
-	}
-
-	repoPath := filepath.Dir(execPath)
-
-	configs := map[string]string{
-		"nvim": filepath.Join(repoPath, "resources", "nvim"),
-		"alacritty": filepath.Join(repoPath, "resources", "alacritty"),
+		slog.Error(err.Error())
 	}
 
 	homeDir, err := os.UserHomeDir()
@@ -40,10 +42,15 @@ func main() {
 		return
 	}
 
-	for name, src := range configs {
+	configs := map[string]string{
+		"nvim": filepath.Join(repositoryDir, "resources", "nvim"),
+		"alacritty": filepath.Join(repositoryDir, "resources", "alacritty"),
+	}
+
+	for name, source := range configs {
 		configDir := filepath.Join(homeDir, ".config", name)
-		if err := linkConfig(src, configDir); err != nil {
-			slog.Error("Ошибка при установке", slog.String("name", name), slog.String("error", err.Error()))
+		if err := createSymlink(source, configDir); err != nil {
+			slog.Error(err.Error())
 		}
 	}
 
